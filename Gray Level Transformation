@@ -1,0 +1,26 @@
+#! /usr/bin/env python3
+
+import cv2, numpy as n                # import opencv and numpy
+
+
+# read the image in gray scale, the second argument to imread is a flag
+# its value can be (1, 0, -1). 0 returns grayscale image.
+
+#first argument to it is the path to the image file
+
+xrayI = cv2.imread('/Users/ritikjangir/Desktop/xray.jpg', 0)
+
+# to invert the image
+
+h, w = xrayI.shape                     # to obtain the height and width
+for x in (0, w):                       # for every x(row) in the range of 0 to width of the image
+    for y in (0, h):                   # select each y(column) in the range of 0 to height  
+        invI = 255 - xrayI             # 255(white) - current value of that pixel
+
+
+cv2.imshow('XRAY', xrayI)
+cv2.imshow('INVERTED', invI)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+
